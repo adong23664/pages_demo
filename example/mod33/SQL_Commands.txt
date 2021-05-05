@@ -1,0 +1,63 @@
+create table Author (
+       AUTHOR_ID integer not null auto_increment,
+        AUTHOR_Name varchar(255),
+        primary key (AUTHOR_ID)
+) engine=InnoDB;
+
+create table author_book (
+       BOOK_ID integer not null,
+        AUTHOR_ID integer not null,
+        primary key (BOOK_ID, AUTHOR_ID)
+) engine=InnoDB;
+
+create table Book (
+       BOOK_ID integer not null auto_increment,
+        book_name varchar(255),
+        primary key (BOOK_ID)
+) engine=InnoDB;
+
+alter table author_book 
+	add constraint FKcup0owu4n7tc3th08qrqjras9 
+	foreign key (AUTHOR_ID) 
+	references Author (AUTHOR_ID);
+
+alter table author_book 
+	add constraint FK1vyict0s8yiglrxpossx2n723 
+	foreign key (BOOK_ID) 
+	references Book (BOOK_ID);
+
+
+        
+insert into  Author (AUTHOR_Name) values ('劉翰林(J,S)');        
+
+insert into  Author (AUTHOR_Name) values ('張君雅(J,S)');
+
+insert into  Author (AUTHOR_Name) values ('黃美智(H,S)');
+
+insert into  Book (book_name) values ('快樂學JSP');
+
+insert into  Book (book_name) values ('Hibernate企業實戰');
+
+insert into  Book (book_name) values ('Spring精典應用');
+
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (1, 1);
+ 
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (3, 1);
+ 
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (1, 2);
+ 
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (3, 2);
+ 
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (2, 3);
+ 
+ insert into author_book (BOOK_ID, AUTHOR_ID) values  (3, 3);
+
+
+
+
+
+SELECT b.book_name, b.book_id 
+	FROM Author_book AS ab, book AS b, author AS a 
+	WHERE 	a.Author_Name = "黃美智(H,S)" AND 
+			a.author_id = ab.author_id AND 
+			ab.book_id = b.book_id;

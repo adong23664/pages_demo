@@ -1,0 +1,9 @@
+Create Table coffees (
+         cof_code int NOT NULL 
+         AUTO_INCREMENT PRIMARY KEY, 
+         cof_name  varchar(32), 
+         sup_id  int(6),   
+         price  decimal(8,1), 
+         sales  int(8),    
+         total  int(11) 
+)

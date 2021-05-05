@@ -1,0 +1,41 @@
+Insert Into coffees  (cof_code, cof_name, price, sales)  Values(1650, '古坑藍山咖啡', 100, 0);
+
+Insert Into coffees Values(1230, '綠島火山咖啡', 240, 200, 15, 960);
+
+Insert Into coffees Values
+(1630, '谷柑咖啡', 210, 450, 0, 1218), 
+(1633, '藍山咖啡', 150, 220, 60, 550), 
+(1641, '阿里山咖啡', 150, 200, 29, 61),
+(1665, '玉山咖啡', 210, 200, 46, 872),
+(1636, '辣味咖啡', 150, 210, 80, 955);
+
+SELECT  cof_name, price, cof_code From coffees;
+
+SELECT  * From coffees;
+
+SELECT  * From coffees limit 0, 3;  -- 取出1,2,3筆記錄
+
+SELECT  * From coffees limit 3, 3;  -- 取出4,5,6筆記錄
+
+SELECT  * From coffees limit 6, 3;  -- 取出7,8,9筆記錄
+
+Select  Distinct  sup_id From coffees;
+
+Select  Distinct  sup_id, price  From coffees;
+
+Select  Distinct  zip  From suppliers;
+
+Select  cof_name, price, sup_id  From coffees  Where  price  >=  100;
+
+Select  *  From  coffees Where price > 80;
+
+Select  s_id, company, contact  From suppliers;
+
+UPDATE  coffees  SET sup_id  = 10, total = 1250  , sales = 80, price = 125   
+	Where   cof_code  =  1650;
+
+Delete  From  coffees  Where  cof_name =  'Colombian';
+
+Delete  From  coffees  Where  cof_code = 1007;
+
+
